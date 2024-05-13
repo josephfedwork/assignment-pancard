@@ -1,0 +1,25 @@
+$primary-color: #8AA838;
+$white: #ffffff;
+
+@mixin button {
+    padding: 14px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    line-height: 1.026rem;
+    font-weight: 500;
+    width: 100%;
+    border: 1px solid;
+    border-radius: 4px;
+    -webkit-appearance: button;
+}
+
+.btn {
+    @include button;
+
+    &-primary {
+        background-color: $primary-color;
+        color: $white;
+        border-color: $primary-color;
+    }
+}

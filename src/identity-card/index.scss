@@ -1,0 +1,83 @@
+$white: #ffffff;
+$card-title: #181818;
+$card-desc: #747474;
+
+@mixin card {
+    background-color: $white;
+    border-radius: 5.91px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 24px 40px 24px 25px;
+    width: 550px
+}
+
+@mixin card-title {
+    font-size: 1rem;
+    line-height: 1.3rem;
+    font-weight: 700;
+    color: $card-title;
+}
+
+@mixin card-title-desc {
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 400;
+    color: $card-desc;
+}
+
+.custom-card {
+    @include card;
+
+    @media only screen and (max-width: 768px) and (orientation: landscape) {
+        width: 100%;
+    }
+
+    .card-title-wrap {
+        display: flex;
+        align-items: center;
+        margin-bottom: 14px;
+
+        .card-title {
+            margin-left: 8.64px;
+            h4 {
+                @include card-title;
+                margin: 0 0 4px 0;
+            }
+
+            &--desc {
+                margin: 0;
+                @include card-title-desc;
+            }
+        }
+    }
+
+    .card-body-wrap {
+        display: flex;
+        gap: 1.5rem;
+
+        @media only screen and (max-width: 768px) and (orientation: portrait) {
+            flex-wrap: wrap;
+        }
+
+        .pan-image {
+            margin-left: 15px;
+
+            @media only screen and (max-width: 768px) and (orientation: portrait) {
+                margin-left: 0px;
+                width: 100%;
+            }
+
+            @media only screen and (max-width: 768px) and (orientation: landscape) {
+                max-width: 50%;
+            }
+        }
+
+        .card-form {
+            width: 50%;
+
+            @media only screen and (max-width: 768px) and (orientation: portrait) {
+                width: 100%;
+            }    
+           
+        }
+    }
+}

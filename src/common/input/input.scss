@@ -1,0 +1,69 @@
+$input-border-color: #CDCDCD;
+$input-border-radius: 4px;
+$input-font-size: 0.875rem;
+$input-line-height: 1.026rem;
+$input-color: #333333;
+
+$input-hover-border-color: #4091F0;
+$white: #ffffff;
+
+$label-color: #ACACAC;
+$label-font-size: 0.875rem;
+$label-line-height: 1.026rem;
+
+@mixin input {
+    border: 1px solid $input-border-color;
+    padding: 14px 12px 14px 16px;
+    border-radius: $input-border-radius;
+    font-size: $input-font-size;
+    line-height: $input-line-height;
+    width: 100%;
+    color: $input-color;
+    transition: all 0.3s ease;
+    margin-bottom: 7px;
+
+    &::placeholder {
+    color: transparent;
+    }
+}
+
+.floating-input {
+    position: relative;
+    .input-form-control {
+        @include input;
+
+        &:focus, &:not(:placeholder-shown) {
+            border-color: $input-hover-border-color;
+            box-shadow: none;
+            outline: none;
+            ~ label {
+                top: -7px;
+                color: $input-hover-border-color;
+                font-size: 0.625rem;
+                background-color: $white;
+                padding: 0 5px;
+            }
+        }
+    }
+
+    label {
+        color: $label-color;
+        font-size: $label-font-size;
+        line-height: $label-line-height;
+        position: absolute;
+        top: 14px;
+        left: 16px;
+
+        @media only screen and (max-width: 768px) {
+            font-size: 0.625rem;
+        }
+    }
+
+    .count-holder {
+        font-size: 0.75rem;
+        line-height: 1rem;
+        color: $label-color;
+        margin-bottom: 17px;
+        text-align: right;
+    }
+}
